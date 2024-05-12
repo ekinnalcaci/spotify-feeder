@@ -15,7 +15,7 @@ import org.springframework.boot.runApplication
                 Contact(
                     name = "Ekin Nalcaci and Eda Nur Altunok",
                 ),
-            version = "1.0",
+            version = "1.1",
         ),
 )
 @SpringBootApplication

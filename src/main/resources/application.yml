@@ -9,8 +9,3 @@ server:
     enabled: true
   http2:
     enabled: true
-
-logging:
-  level:
-    org:
-      springframework=DEBUG:

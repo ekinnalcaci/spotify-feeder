@@ -4,6 +4,9 @@ package com.bigdataproject.spotifyfeeder.infrastructure.api
 
 import com.bigdataproject.spotifyfeeder.application.ElasticSearchService
 import com.bigdataproject.spotifyfeeder.domain.Song
+import org.apache.http.StatusLine
+import org.springframework.http.HttpStatusCode
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 // Used to manage elastic indexes and send elastic queries
@@ -14,21 +17,26 @@ class ElasticSearchController(
     private val elasticSearchService: ElasticSearchService,
 ) {
     @PutMapping("create-index")
-    fun createIndex(): Boolean {
-        return elasticSearchService.createIndex()
+    fun createIndex(): ResponseEntity<StatusLine> {
+        val response = elasticSearchService.createIndex()
+        val responseCode = HttpStatusCode.valueOf(response.statusCode)
+        return ResponseEntity.status(responseCode).body(response)
     }
 
     @PutMapping("add-song")
     fun addSong(
         @RequestBody song: Song,
-    ): Boolean {
-        return elasticSearchService.addSong(song)
+    ): ResponseEntity<StatusLine> {
+        val response = elasticSearchService.addSong(song) // TODO id sini mi dönse
+        val responseCode = HttpStatusCode.valueOf(response.statusCode)
+        return ResponseEntity.status(responseCode).body(response)
     }
 
-    @PutMapping("search-song-name")
+    @GetMapping("search-song-name")
     fun searchSongName(
         @RequestParam(required = true) songName: String,
-    ): Boolean {
-        return elasticSearchService.searchSongName(songName)
+    ): ResponseEntity<List<Song>> {
+        val response = elasticSearchService.searchSongName(songName)
+        return ResponseEntity.ok(response)
     }
 }

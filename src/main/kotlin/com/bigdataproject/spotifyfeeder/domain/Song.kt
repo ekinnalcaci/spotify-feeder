@@ -1,12 +1,13 @@
 package com.bigdataproject.spotifyfeeder.domain
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.data.annotation.Id
 import org.springframework.data.elasticsearch.annotations.Document
 
 @Document(indexName = "spotify-songs")
 data class Song(
-    @Id val id: String,
-    val name: String,
-    val artist: String,
-    val durationSeconds: Long,
+    @JsonProperty("id") @Id val id: String,
+    @JsonProperty("name") val name: String,
+    @JsonProperty("artist") val artist: String,
+    @JsonProperty("durationSeconds") val durationSeconds: Double,
 )
