@@ -2,8 +2,14 @@ spring:
   application:
     name: spotify-feeder
 
+couchbase:
+  bucket-name: Song
+  password: cbpassword
+  connection-string: localhost
+  username: Administrator
+
 server:
-  port: 8095
+  port: 8099
   shutdown: graceful
   compression:
     enabled: true

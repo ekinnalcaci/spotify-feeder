@@ -29,6 +29,7 @@ dependencies {
     }
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-couchbase:3.2.5")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

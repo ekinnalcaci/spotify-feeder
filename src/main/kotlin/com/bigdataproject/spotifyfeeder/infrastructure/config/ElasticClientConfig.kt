@@ -21,7 +21,7 @@ class ElasticClientConfig() {
     }
 
     @Bean
-    fun asyncClient(restClient: RestClient): ElasticsearchAsyncClient {  // TODO async client migrate et
+    fun asyncClient(restClient: RestClient): ElasticsearchAsyncClient { // TODO async client migrate et
         logger.info("ElasticsearchAsyncClient bean created.")
         val transport = RestClientTransport(restClient, JacksonJsonpMapper(ObjectMapper()))
         return ElasticsearchAsyncClient(transport)

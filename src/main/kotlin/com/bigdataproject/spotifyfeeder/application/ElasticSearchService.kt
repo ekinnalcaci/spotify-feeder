@@ -1,7 +1,7 @@
 package com.bigdataproject.spotifyfeeder.application
 
+import com.bigdataproject.spotifyfeeder.application.extensions.toSongs
 import com.bigdataproject.spotifyfeeder.domain.Song
-import com.bigdataproject.spotifyfeeder.infrastructure.extensions.toSongs
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.http.StatusLine
 import org.elasticsearch.client.Request
@@ -34,7 +34,7 @@ class ElasticSearchService(
         return elasticClient.performRequest(request).statusLine
     }
 
-    fun searchSongName(songName: String): List<Song> {
+    fun searchSongByName(songName: String): List<Song> {
         val request = Request("GET", SEARCH_ENDPOINT)
         val body =
             """

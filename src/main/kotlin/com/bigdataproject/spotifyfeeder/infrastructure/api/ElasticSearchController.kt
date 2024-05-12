@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.*
 class ElasticSearchController(
     private val elasticSearchService: ElasticSearchService,
 ) {
-    @PutMapping("create-index")
+    @PutMapping("/create-songs-index")
     fun createIndex(): ResponseEntity<StatusLine> {
         val response = elasticSearchService.createIndex()
         val responseCode = HttpStatusCode.valueOf(response.statusCode)
         return ResponseEntity.status(responseCode).body(response)
     }
 
-    @PutMapping("add-song")
+    @PutMapping("/add-song")
     fun addSong(
         @RequestBody song: Song,
     ): ResponseEntity<StatusLine> {
-        val response = elasticSearchService.addSong(song) // TODO id sini mi dönse
+        val response = elasticSearchService.addSong(song)
         val responseCode = HttpStatusCode.valueOf(response.statusCode)
         return ResponseEntity.status(responseCode).body(response)
     }
 
-    @GetMapping("search-song-name")
-    fun searchSongName(
+    @GetMapping("/search-song-name")
+    fun searchSongByName(
         @RequestParam(required = true) songName: String,
     ): ResponseEntity<List<Song>> {
-        val response = elasticSearchService.searchSongName(songName)
+        val response = elasticSearchService.searchSongByName(songName)
         return ResponseEntity.ok(response)
     }
 }
