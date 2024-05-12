@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spotify-feeder
+
+server:
+  port: 8095
+  shutdown: graceful
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+
+logging:
+  level:
+    org:
+      springframework=DEBUG:

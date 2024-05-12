@@ -1,0 +1,18 @@
+import org.apache.http.HttpHost
+import org.elasticsearch.client.RestClient
+import org.slf4j.LoggerFactory
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+class ElasticClientConfig {
+    private val logger = LoggerFactory.getLogger(ElasticClientConfig::class.java)
+
+    @Bean
+    fun restClient(): RestClient {
+        logger.info("RestClient bean created.")
+        return RestClient.builder(
+            HttpHost("localhost", 9200, "http"),
+        ).build()
+    }
+}
