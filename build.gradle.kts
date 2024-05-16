@@ -23,6 +23,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
     implementation("co.elastic.clients:elasticsearch-java:8.13.4")
     implementation("org.elasticsearch.client:elasticsearch-rest-client:8.13.4")
+    implementation("org.springframework.kafka:spring-kafka:")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
     implementation("org.springframework.boot:spring-boot-starter-web:3.2.5") {
         exclude("com.fasterxml.jackson.core")

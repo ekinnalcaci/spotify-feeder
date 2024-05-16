@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.info.Contact
 import io.swagger.v3.oas.annotations.info.Info
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.kafka.annotation.EnableKafka
 
 @OpenAPIDefinition(
     info =
@@ -15,9 +16,10 @@ import org.springframework.boot.runApplication
                 Contact(
                     name = "Ekin Nalcaci and Eda Nur Altunok",
                 ),
-            version = "1.2",
+            version = "1.3",
         ),
 )
+@EnableKafka
 @SpringBootApplication
 class SpotifyFeederApplication
 

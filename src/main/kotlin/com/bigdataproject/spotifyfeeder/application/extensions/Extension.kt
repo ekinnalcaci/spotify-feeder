@@ -1,7 +1,6 @@
 package com.bigdataproject.spotifyfeeder.application.extensions
 
 import com.bigdataproject.spotifyfeeder.domain.Song
-import com.bigdataproject.spotifyfeeder.infrastructure.couchbase.models.SongWrapper
 import com.couchbase.client.java.json.JsonObject
 import com.couchbase.client.java.query.QueryOptions
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -32,10 +31,6 @@ fun Response.toSongs(objectMapper: ObjectMapper): List<Song> {
         }
     }
     return emptyList()
-}
-
-fun SongWrapper.toSong(): Song {
-    return Song(this.song.id, this.song.name, this.song.artist, this.song.durationSeconds)
 }
 
 fun QueryOptions.withPairs(list: List<Pair<String, Any>>): QueryOptions {

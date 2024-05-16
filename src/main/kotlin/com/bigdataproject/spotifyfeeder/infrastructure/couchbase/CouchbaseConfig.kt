@@ -1,6 +1,5 @@
-package com.bigdataproject.spotifyfeeder.infrastructure.config
+package com.bigdataproject.spotifyfeeder.infrastructure.couchbase
 
-import com.bigdataproject.spotifyfeeder.infrastructure.couchbase.CouchbaseProperties
 import com.couchbase.client.java.Bucket
 import com.couchbase.client.java.Cluster
 import com.couchbase.client.java.Collection

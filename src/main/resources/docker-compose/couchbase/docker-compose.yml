@@ -1,0 +1,19 @@
+services:
+  couchbase:
+    image: couchbase
+    ports:
+      - "8091-8095:8091-8095"
+      - "11210:11210"
+    environment:
+      - CLUSTER_NAME=myCluster
+      - CLUSTER_RAMSIZE=1024
+      - CLUSTER_INDEX_RAMSIZE=512
+      - CLUSTER_FTS_RAMSIZE=512
+      - CLUSTER_EVENTING_RAMSIZE=256
+      - CLUSTER_ANALYTICS_RAMSIZE=1024
+      - SERVICES=data,index,query,fts,analytics,eventing
+    networks:
+      - backend
+
+networks:
+  backend:
