@@ -8,4 +8,11 @@ interface SongRepository {
     fun addSong(song: Song)
 
     fun getSongById(id: String): Song?
+
+    fun updateArtistFollowers(
+        id: String,
+        followers: Long,
+    )
+
+    fun updateArtistFollowers(song: Song)
 }

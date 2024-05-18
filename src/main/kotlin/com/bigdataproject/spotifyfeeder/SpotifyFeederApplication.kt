@@ -16,7 +16,7 @@ import org.springframework.kafka.annotation.EnableKafka
                 Contact(
                     name = "Ekin Nalcaci and Eda Nur Altunok",
                 ),
-            version = "1.3",
+            version = "1.4",
         ),
 )
 @EnableKafka

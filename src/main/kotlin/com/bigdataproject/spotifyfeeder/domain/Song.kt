@@ -10,4 +10,5 @@ data class Song(
     @JsonProperty("name") val name: String,
     @JsonProperty("artist") val artist: String,
     @JsonProperty("durationSeconds") val durationSeconds: Double,
+    @JsonProperty("artistFollowers") var artistFollowers: Long = 0,
 )
