@@ -15,7 +15,7 @@ class KafkaController(
 ) {
     @PostMapping("/produce-message")
     fun produceMessage(
-        @RequestBody message: String,
+        @RequestBody message: Any,
     ): ResponseEntity<Unit> {
         return ResponseEntity.ok(kafkaProducer.produce(message))
     }

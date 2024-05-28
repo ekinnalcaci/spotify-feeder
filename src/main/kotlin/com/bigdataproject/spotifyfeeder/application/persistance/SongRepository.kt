@@ -10,4 +10,6 @@ interface SongRepository {
     fun getSongById(id: String): Song?
 
     fun updateArtistFollowers(song: Song)
+
+    fun getRandomSongId(): String
 }
