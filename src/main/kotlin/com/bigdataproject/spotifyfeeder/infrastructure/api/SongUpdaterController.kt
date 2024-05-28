@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.*
 class SongUpdaterController(
     private val songUpdaterService: SongUpdaterService,
 ) {
-    @PostMapping("/increment-followers")
-    fun incrementFollowers(
+    @PostMapping("/increment-popularity")
+    fun incrementPopularity(
         @RequestParam(required = true) id: String,
         @RequestParam(required = true) amount: Int,
     ): ResponseEntity<Unit> {
-        return ResponseEntity.ok(songUpdaterService.increaseArtistFollowers(id, amount))
+        return ResponseEntity.ok(songUpdaterService.increasePopularity(id, amount))
     }
 
-    @PostMapping("/decrement-followers")
-    fun decrementFollowers(
+    @PostMapping("/decrement-popularity")
+    fun decrementPopularity(
         @RequestParam(required = true) id: String,
         @RequestParam(required = true) amount: Int,
     ): ResponseEntity<Unit> {
-        return ResponseEntity.ok(songUpdaterService.decreaseArtistFollowers(id, amount))
+        return ResponseEntity.ok(songUpdaterService.decreaseArtistPopularity(id, amount))
     }
 }

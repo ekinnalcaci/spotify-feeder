@@ -14,7 +14,7 @@ class SongRepositoryImpl(
     private val collection: Collection,
 ) : SongRepository {
     override fun getSongByName(songName: String): List<Song> {
-        val query = "SELECT * FROM ${collection.bucketName()} WHERE name='$songName'"
+        val query = "SELECT * FROM ${collection.bucketName()} WHERE track_name='$songName'"
         return cluster.query(query)
             .rowsAs(SongWrapper::class.java)
             .toSongList()
@@ -26,15 +26,6 @@ class SongRepositoryImpl(
 
     override fun getSongById(id: String): Song? {
         return collection.get(id)?.contentAs(Song::class.java)
-    }
-
-    override fun updateArtistFollowers(
-        id: String,
-        followers: Long,
-    ) {
-        val song = getSongById(id) ?: return
-        song.apply { this.artistFollowers = followers }
-        collection.upsert(song.id, song)
     }
 
     override fun updateArtistFollowers(song: Song) {

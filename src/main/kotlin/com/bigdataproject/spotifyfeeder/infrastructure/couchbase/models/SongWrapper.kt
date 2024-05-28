@@ -8,11 +8,35 @@ data class SongWrapper(
 ) {
     companion object {
         fun SongWrapper.toSong(): Song {
-            return Song(this.song.id, this.song.name, this.song.artist, this.song.durationSeconds)
+            return Song(
+                id = this.song.id,
+                name = this.song.name,
+                artist = this.song.artist,
+                popularity = this.song.popularity,
+                albumId = this.song.albumId,
+                albumName = this.song.albumName,
+                releaseDate = this.song.releaseDate,
+                playlistName = this.song.playlistName,
+                playlistId = this.song.playlistId,
+                playlistGenre = this.song.playlistGenre,
+                playlistSubGenre = this.song.playlistSubGenre,
+                danceability = this.song.danceability,
+                energy = this.song.energy,
+                key = this.song.key,
+                loudness = this.song.loudness,
+                mode = this.song.mode,
+                speechiness = this.song.speechiness,
+                acousticness = this.song.acousticness,
+                instrumentalness = this.song.instrumentalness,
+                liveness = this.song.liveness,
+                valence = this.song.valence,
+                tempo = this.song.tempo,
+                durationMilis = this.song.durationMilis,
+            )
         }
 
         fun List<SongWrapper>.toSongList(): List<Song> {
-            return this.map { Song(it.song.id, it.song.name, it.song.artist, it.song.durationSeconds) }
+            return this.map { it.toSong() }
         }
     }
 }
