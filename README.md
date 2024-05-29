@@ -1,4 +1,4 @@
-A small springboot project to use big data handling & processing technologies such as Couchbase, ELK stack, Couchbase-Elasticsearch-Connector. 
+A small springboot project for big data course, to use big data handling & processing technologies such as Couchbase, ELK stack, Couchbase-Elasticsearch-Connector. 
 All docker files for technologies needed to use this project, such as Zookeper, Kowl etc. are all included in resources. 
 Project works on
 
