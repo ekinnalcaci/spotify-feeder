@@ -14,7 +14,7 @@ import org.springframework.kafka.core.*
 @EnableConfigurationProperties(KafkaProperties::class)
 class KafkaConfig(private val kafkaProperties: KafkaProperties) {
     companion object {
-        const val SONG_CHANGE_TOPIC_NAME = "test"
+        const val SONG_CHANGE_TOPIC_NAME = "update-song-popularity"
         const val GROUP_ID = "local.0"
     }
 
