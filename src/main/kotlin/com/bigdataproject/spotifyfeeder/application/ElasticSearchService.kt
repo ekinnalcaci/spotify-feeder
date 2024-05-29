@@ -41,7 +41,7 @@ class ElasticSearchService(
             {
                 "query": {
                     "match": {
-                        "name": "$songName"
+                        "doc.track_name": "$songName"
                     }
                 }
             }
